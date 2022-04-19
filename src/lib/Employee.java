@@ -18,12 +18,10 @@ public class Employee extends Human{
 	private List<String> childNames;
 	private List<String> childIdNumbers;
 	
-	public Employee(String employeeId,   String idNumber,  int yearJoined, int monthJoined, int dayJoined, Human dataHuman) {
+	public Employee(String employeeId, String idNumber, LocalDate joinDate, Human dataHuman) {
 		this.employeeId = employeeId;
 		this.idNumber = idNumber;
-		this.yearJoined = yearJoined;
-		this.monthJoined = monthJoined;
-		this.dayJoined = dayJoined;
+		this.joinDate = joinDate;
 		dataHuman.setFirstName("First Name");
 		dataHuman.setLastName("Last Name");
 		dataHuman.setAddress("Address");
