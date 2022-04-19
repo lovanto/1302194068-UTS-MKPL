@@ -8,9 +8,7 @@ public class Employee extends Human{
 	private String employeeId;
 	private String idNumber;
 	private Human dataHuman;
-	private int yearJoined;
-	private int monthJoined;
-	private int dayJoined;
+	private LocalDate joinDate;
 	private int monthWorkingInYear;
 	private int monthlySalary;
 	private int otherMonthlyIncome;
@@ -80,8 +78,8 @@ public class Employee extends Human{
 	public int getAnnualIncomeTax() {
 		LocalDate date = LocalDate.now();
 		
-		if (date.getYear() == yearJoined) {
-			monthWorkingInYear = date.getMonthValue() - monthJoined;
+		if (date.getYear() == joinDate.getDayOfYear()) {
+			monthWorkingInYear = date.getMonthValue() - joinDate.getDayOfMonth();
 		}else {
 			monthWorkingInYear = 12;
 		}
