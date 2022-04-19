@@ -38,19 +38,13 @@ public class Employee extends Human{
 	public void setMonthlySalary(int grade) {	
 		if (grade == 1) {
 			monthlySalary = 3000000;
-			if (dataHuman.getIsForeigner()) {
-				monthlySalary = (int) (3000000 * 1.5);
-			}
+			if (dataHuman.getIsForeigner()) monthlySalary = (int) (3000000 * 1.5);
 		}else if (grade == 2) {
 			monthlySalary = 5000000;
-			if (dataHuman.getIsForeigner()) {
-				monthlySalary = (int) (3000000 * 1.5);
-			}
+			if (dataHuman.getIsForeigner()) monthlySalary = (int) (3000000 * 1.5);
 		}else if (grade == 3) {
 			monthlySalary = 7000000;
-			if (dataHuman.getIsForeigner()) {
-				monthlySalary = (int) (3000000 * 1.5);
-			}
+			if (dataHuman.getIsForeigner()) monthlySalary = (int) (3000000 * 1.5);
 		}
 	}
 	
@@ -75,13 +69,8 @@ public class Employee extends Human{
 	//Menghitung berapa lama pegawai bekerja dalam setahun ini, jika pegawai sudah bekerja dari tahun sebelumnya maka otomatis dianggap 12 bulan.
 	public int getAnnualIncomeTax() {
 		LocalDate date = LocalDate.now();
-		
-		if (date.getYear() == joinDate.getDayOfYear()) {
-			monthWorkingInYear = date.getMonthValue() - joinDate.getDayOfMonth();
-		}else {
-			monthWorkingInYear = 12;
-		}
-		
+		if (date.getYear() == joinDate.getDayOfYear()) monthWorkingInYear = date.getMonthValue() - joinDate.getDayOfMonth();
+		else monthWorkingInYear = 12;
 		return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, spouseIdNumber.equals(""), childIdNumbers.size());
 	}
 }
